@@ -1,11 +1,38 @@
-let score =JSON.parse(localStorage.getItem('score')) || {
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+    <button onclick="
+    playGame('rock');
+    ">Rock</button>
+
+    <button onclick="
+    playGame('paper');
+    ">Paper</button>
+
+    <button onclick="
+    playGame('scissors');
+    
+    ">Scissors</button>
+
+    <button>Score</button>
+
+    <button onclick="
+    score.wins=0;
+    score.loses=0;
+    score.ties=0;
+    localStorage.removeItem('score');">Reset Score</button>
+
+    <script>
+      
+      let score =JSON.parse(localStorage.getItem('score')) || {
         wins:0,
-        loses:0,
+        losses:0,
         ties:0}
 
-
-
-        updateScoreElement();
         
       /*
       if(!score){
@@ -71,16 +98,8 @@ let score =JSON.parse(localStorage.getItem('score')) || {
           
           localStorage.setItem('score',JSON.stringify(score));
 
-          updateScoreElement();
-
-          document.querySelector('.js-result').innerHTML=result;
-
-        document.querySelector('.js-moves').innerHTML=`You
-      <img src="images/${playerMove}-emoji.png" class="move-icon">
-      <img src="images/${computerMove}-emoji.png" class="move-icon">
-      computer`;
-
-
+      alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
+Wins:${score.wins},Loses:${score.loses},Ties:${score.ties}`);
 
       }
 
@@ -99,8 +118,11 @@ let score =JSON.parse(localStorage.getItem('score')) || {
          return computerMove;
       }
 
-      function updateScoreElement(){
-         document.querySelector('.js-score').innerHTML=`Wins:${score.wins},Loses:${score.loses},Ties:${score.ties}`;
 
-      }
 
+
+
+
+    </script>
+  </body>
+</html>

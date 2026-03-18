@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<button onclick="calculation+='1';
+updateDisplay();">1</button>
+<button onclick="calculation+='2';
+updateDisplay();">2</button>
+<button onclick="calculation+='3';
+updateDisplay();">3</button>
+<button onclick="calculation+=' + ';
+updateDisplay();">+</button>
+<button onclick="calculation=eval(calculation);
+updateDisplay()">=</button>
+<button onclick="calculation='';
+updateDisplay()">Clear</button>
+
+
+<p class="display">0</p>
+
+
+
+<script>
+
+let calculation = JSON.parse(localStorage.getItem('calculation')) || '';
+
+  updateDisplay();
+
+
+
+ function updateDisplay() {
+           
+            document.querySelector('.display').innerHTML = calculation;
+            localStorage.setItem('calculation',JSON.stringify(calculation));
+        }
+
+</script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
